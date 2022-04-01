@@ -49,13 +49,15 @@ int	stack_len(char **av)
 			return (ft_putendl_fd("Error", 2), exit(0), 0);
 		while (av[i][j])
 		{
+			hol = j;
 			j += is_space(&av[i][j]);
-			if (!av[i][j])
+			if ((!av[i][j] && !ac) || (hol == j && ac))
 				return (ft_putendl_fd("Error", 2), exit(0), 0);
+			if (!av[i][j])
+				break ;
 			hol = ft_atoi_modified(&av[i][j], &j);
 			if (hol > INT_MAX)
 				return (ft_putendl_fd("Error", 2), exit(0), 0);
-			j += is_space(&av[i][j]);
 			ac++;
 		}
 	}
