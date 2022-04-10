@@ -27,6 +27,10 @@ void	sort_stack_a(t_stacks *ls, int max, int len, t_collect *var)
 	{
 		if (*(int *)(*ls->stack_a)->content < mid && len--)
 			push_b(ls->stack_a, ls->stack_b);
+		else if (++r_rotate && *ls->stack_b
+			&& ft_lstsize(*ls->stack_b) < len_div / 2
+			&& *(int *)(*ls->stack_b)->content < (mid / 2))
+			rotate_ab(ls->stack_a, ls->stack_b);
 		else
 			rotate_a(ls->stack_a);
 	}
