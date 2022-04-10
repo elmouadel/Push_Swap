@@ -51,7 +51,7 @@ int	stack_len(char **av)
 		{
 			hol = j;
 			j += is_space(&av[i][j]);
-			if ((!av[i][j] && !ac) || (hol == j && ac))
+			if ((!av[i][j] && !ac) || (hol == j && ac && j != 0))
 				return (ft_putendl_fd("Error", 2), exit(0), 0);
 			if (!av[i][j])
 				break ;
